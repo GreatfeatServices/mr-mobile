@@ -2,7 +2,7 @@
 
 ## Objective
 
-- The objective of this exam is to showcase the applicant's way of coding.
+- The objective of this exam is to showcase the applicant's coding style.
 
 ## App requirements
 
