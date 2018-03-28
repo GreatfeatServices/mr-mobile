@@ -13,10 +13,10 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/textViewSplashScreen"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:text="GreatFeat"
             android:textStyle="bold"
-            android:textSize="50sp"
+            android:textSize="@dimen/splash_screen"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

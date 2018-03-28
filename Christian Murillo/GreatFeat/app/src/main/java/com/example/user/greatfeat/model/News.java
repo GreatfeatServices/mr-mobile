@@ -1,24 +1,32 @@
 package com.example.user.greatfeat.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by USER on 27/03/2018.
  */
 
 public class News {
 
-    private String author;
-    private String title;
-    private String description;
-    private String urlToImage;
-    private String publishedAt;
+    private ArrayList<Articles> articles;
 
-    public String getAuthor() { return author; }
+    public News(ArrayList<Articles> articles) {
 
-    public String getTitle() { return title; }
+        this.articles = articles;
+    }
 
-    public String getDescription() { return description; }
+    public ArrayList<Articles> getArticles() {
+        return articles;
+    }
 
-    public String getUrlToImage() { return urlToImage; }
+    public void setArticles(ArrayList<Articles> articles) {
+        this.articles = articles;
+    }
 
-    public String getPublishedAt() { return publishedAt; }
+    @Override
+    public String toString() {
+        return "News{" +
+                "articles=" + articles +
+                '}';
+    }
 }

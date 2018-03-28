@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="splash_screen">50sp</dimen>
+    <dimen name="author">20sp</dimen>
+    <dimen name="title">15sp</dimen>
+</resources>

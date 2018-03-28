@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.user.greatfeat.model.Articles;
 
 public class Article extends AppCompatActivity {
 
@@ -18,11 +19,7 @@ public class Article extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article);
 
-        Bundle extras = getIntent().getExtras();
-        final String title = extras.getString("title");
-        final String description = extras.getString("description");
-        final String urlToImage = extras.getString("urlToImage");
-        final String publishedAt = extras.getString("publishedAt");
+        Articles articles = (Articles)getIntent().getParcelableExtra("articles");
 
         articleTitle = (TextView) findViewById(R.id.articleTitle);
         articleDate = (TextView) findViewById(R.id.articleDate);
@@ -30,10 +27,10 @@ public class Article extends AppCompatActivity {
         articleDescription = (TextView) findViewById(R.id.articleDescription);
         articleImage = (ImageView) findViewById(R.id.articleImage);
 
-        articleTitle.setText(title);
-        articleDate.setText(publishedAt);
-        articleDescription.setText(description);
-        Glide.with(this).load(urlToImage).into(articleImage);
+        articleTitle.setText(articles.getTitle());
+        articleDate.setText(articles.getPublishedAt());
+        articleDescription.setText(articles.getDescription());
+        Glide.with(this).load(articles.getUrlToImage()).into(articleImage);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
