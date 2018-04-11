@@ -11,3 +11,7 @@ import Foundation
 enum SegueIdentifier: String {
     case showCharacterDetail = "showCharacterDetail"
 }
+
+enum CellIdentifier: String {
+    case characterCell = "characterCell"
+}

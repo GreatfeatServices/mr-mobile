@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 enum Router: URLRequestConvertible {
 
@@ -39,7 +40,7 @@ enum Router: URLRequestConvertible {
         urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
 
         switch self {
-        case .auth: break
+        case .getCharacters: break
         }
         return urlRequest
     }

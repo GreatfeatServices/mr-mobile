@@ -10,6 +10,7 @@
 		110BF8784A59D1151F868C37 /* Pods_RickAndMortyInfoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4D689A415D0ACBBC19CD12 /* Pods_RickAndMortyInfoUITests.framework */; };
 		13A6565549125DD6DC1D09F8 /* Pods_RickAndMortyInfoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D2D2E4F7430D9E70B17152 /* Pods_RickAndMortyInfoTests.framework */; };
 		844898608C030A6C98DE30A8 /* Pods_RickAndMortyInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A184DFC305CD0636E5FFB53 /* Pods_RickAndMortyInfo.framework */; };
+		D79761FB207E1EED0065223A /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79761FA207E1EED0065223A /* CharacterListViewController.swift */; };
 		D7E1E8A1207E0D7200AFD8C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E1E8A0207E0D7200AFD8C2 /* AppDelegate.swift */; };
 		D7E1E8A6207E0D7200AFD8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E1E8A4207E0D7200AFD8C2 /* Main.storyboard */; };
 		D7E1E8A8207E0D7700AFD8C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7E1E8A7207E0D7700AFD8C2 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		7C1137EC98D3DC9BCD4D83F0 /* Pods-RickAndMortyInfoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyInfoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RickAndMortyInfoTests/Pods-RickAndMortyInfoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A4D2D2E4F7430D9E70B17152 /* Pods_RickAndMortyInfoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RickAndMortyInfoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A107E70C745F669B7F5B6A /* Pods-RickAndMortyInfoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyInfoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RickAndMortyInfoTests/Pods-RickAndMortyInfoTests.release.xcconfig"; sourceTree = "<group>"; };
+		D79761FA207E1EED0065223A /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		D7E1E89D207E0D7200AFD8C2 /* RickAndMortyInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7E1E8A0207E0D7200AFD8C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7E1E8A5207E0D7200AFD8C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		D7E1E8CE207E0E7F00AFD8C2 /* View controller */ = {
 			isa = PBXGroup;
 			children = (
+				D79761FA207E1EED0065223A /* CharacterListViewController.swift */,
 			);
 			path = "View controller";
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D79761FB207E1EED0065223A /* CharacterListViewController.swift in Sources */,
 				D7E1E8A1207E0D7200AFD8C2 /* AppDelegate.swift in Sources */,
 				D7E1E8D5207E1BE200AFD8C2 /* Router.swift in Sources */,
 				D7E1E8D3207E182D00AFD8C2 /* Constants.swift in Sources */,
@@ -657,7 +661,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ATQ5JMWU8;
 				INFOPLIST_FILE = "$(SRCROOT)/RickAndMortyInfo/Resources/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.richmondko.apps.RickAndMortyInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -673,7 +680,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ATQ5JMWU8;
 				INFOPLIST_FILE = "$(SRCROOT)/RickAndMortyInfo/Resources/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.richmondko.apps.RickAndMortyInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -690,7 +700,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ATQ5JMWU8;
 				INFOPLIST_FILE = RickAndMortyInfoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.richmondko.apps.RickAndMortyInfoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -708,7 +722,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ATQ5JMWU8;
 				INFOPLIST_FILE = RickAndMortyInfoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.richmondko.apps.RickAndMortyInfoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -725,7 +743,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ATQ5JMWU8;
 				INFOPLIST_FILE = RickAndMortyInfoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.richmondko.apps.RickAndMortyInfoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -742,7 +764,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ATQ5JMWU8;
 				INFOPLIST_FILE = RickAndMortyInfoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.richmondko.apps.RickAndMortyInfoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
