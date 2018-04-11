@@ -12,7 +12,7 @@ import Alamofire
 
 enum Router: URLRequestConvertible {
 
-    case getCharacters()
+    case getCharacters(page: Int?)
 
     static let baseURLString = "https://rickandmortyapi.com/api"
 
@@ -24,7 +24,7 @@ enum Router: URLRequestConvertible {
 
     private var path: String {
         switch self {
-        case .getCharacters:
+        case .getCharacters(_):
             return "/character"
         }
     }
@@ -40,7 +40,13 @@ enum Router: URLRequestConvertible {
         urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
 
         switch self {
-        case .getCharacters: break
+        case .getCharacters(let page):
+            if let page = page {
+                let parameters: [String: Any] = [
+                    "page": page
+                ]
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+            }
         }
         return urlRequest
     }

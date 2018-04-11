@@ -16,6 +16,10 @@ class CharacterListViewController: UIViewController {
     private let COLLECTION_VIEW_NO_OF_COLUMNS: CGFloat = 2.0
     private let COLLECTION_VIEW_NO_OF_HORIZONTAL_SPACES: CGFloat = 3.0
     private var charactersResponse: CharacterResponse?
+    private var characters: [Character] = []
+    private var chosenCharacter: Character?
+    private var isLoading: Bool = false
+    private var currentPage: Int = 1
 
     // MARK: - Stored (IBOutlet)
     @IBOutlet var charactersCollectionView: UICollectionView!
@@ -28,6 +32,13 @@ class CharacterListViewController: UIViewController {
         getCharacters()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.showCharacterDetail.rawValue {
+            let destination = segue.destination as! CharacterDetailViewController
+            destination.character = chosenCharacter
+        }
+    }
+
     // MARK: - Instance
     private func configureCharactersCollectionView() {
         charactersCollectionView.delegate = self
@@ -36,13 +47,32 @@ class CharacterListViewController: UIViewController {
 
     private func getCharacters() {
         startLoading()
-        CharacterService.shared.getCharacters { [weak self] (charactersResponse, error) in
+        CharacterService.shared.getCharacters(page: nil) { [weak self] (charactersResponse, error) in
             self?.stopLoading()
             if let error = error {
                 self?.presentErrorAlertController(error: error)
             } else if let charactersResponse = charactersResponse {
                 self?.charactersResponse = charactersResponse
+                self?.characters.append(contentsOf: charactersResponse.results)
                 self?.charactersCollectionView.reloadData()
+            }
+        }
+    }
+
+    private func getMoreCharacters() {
+        guard let charactersResponse = charactersResponse else { return }
+        currentPage += 1
+        if !isLoading && currentPage <= charactersResponse.info.pages {
+            startLoading()
+            CharacterService.shared.getCharacters(page: currentPage) { [weak self] (charactersResponse, error) in
+                self?.stopLoading()
+                if let error = error {
+                    self?.presentErrorAlertController(error: error)
+                } else if let charactersResponse = charactersResponse {
+                    self?.charactersResponse = charactersResponse
+                    self?.characters.append(contentsOf: charactersResponse.results)
+                    self?.charactersCollectionView.reloadData()
+                }
             }
         }
     }
@@ -50,11 +80,13 @@ class CharacterListViewController: UIViewController {
     private func startLoading() {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
+        isLoading = true
     }
 
     private func stopLoading() {
         activityIndicator.isHidden = true
         activityIndicator.stopAnimating()
+        isLoading = false
     }
 }
 
@@ -64,20 +96,14 @@ extension CharacterListViewController: UICollectionViewDelegate, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let charactersResponse = charactersResponse else {
-            return 0
-        }
-        return charactersResponse.results.count
+        return characters.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let charactersResponse = charactersResponse else {
-            return UICollectionViewCell()
-        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.characterCell.rawValue, for: indexPath) as! CharacterCollectionViewCell
         cell.layer.cornerRadius = 5.0
         cell.clipsToBounds = true
-        cell.configure(withCharacter: charactersResponse.results[indexPath.row])
+        cell.configure(withCharacter: characters[indexPath.row])
         return cell
     }
 
@@ -97,5 +123,16 @@ extension CharacterListViewController: UICollectionViewDelegate, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(COLLECTION_VIEW_CARD_SPACING, COLLECTION_VIEW_CARD_SPACING, COLLECTION_VIEW_CARD_SPACING, COLLECTION_VIEW_CARD_SPACING)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == characters.count - 1 {
+            getMoreCharacters()
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        chosenCharacter = characters[indexPath.row]
+        performSegue(withIdentifier: SegueIdentifier.showCharacterDetail.rawValue, sender: self)
     }
 }

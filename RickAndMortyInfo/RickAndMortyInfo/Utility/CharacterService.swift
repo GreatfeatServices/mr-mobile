@@ -14,8 +14,8 @@ class CharacterService {
     private init() {}
     static let shared = CharacterService()
 
-    func getCharacters(withBlock completion: @escaping (CharacterResponse?, Error?) -> Void) {
-        Alamofire.request(Router.getCharacters()).responseDecodableObject(decoder: JSONDecoder()) { (response: DataResponse<CharacterResponse>) in
+    func getCharacters(page: Int?, withBlock completion: @escaping (CharacterResponse?, Error?) -> Void) {
+        Alamofire.request(Router.getCharacters(page: page)).responseDecodableObject(decoder: JSONDecoder()) { (response: DataResponse<CharacterResponse>) in
             switch response.result {
             case .success(let characterResponse):
                 completion(characterResponse, nil)
