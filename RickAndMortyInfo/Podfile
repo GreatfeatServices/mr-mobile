@@ -13,7 +13,8 @@ target 'RickAndMortyInfo' do
     pod 'SwiftyJSON'
     pod 'Kingfisher', '~> 4.0'
     pod 'Alamofire'
-
+    pod 'CodableAlamofire'
+    
     target 'RickAndMortyInfoTests' do
     inherit! :search_paths
     # Pods for testing
