@@ -13,6 +13,7 @@
 		D7E1E8AB207E0D7700AFD8C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E1E8A9207E0D7700AFD8C2 /* LaunchScreen.storyboard */; };
 		D7E1E8B6207E0D7800AFD8C2 /* RickAndMortyInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E1E8B5207E0D7800AFD8C2 /* RickAndMortyInfoTests.swift */; };
 		D7E1E8C1207E0D7800AFD8C2 /* RickAndMortyInfoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E1E8C0207E0D7800AFD8C2 /* RickAndMortyInfoUITests.swift */; };
+		D7E1E8D3207E182D00AFD8C2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E1E8D2207E182D00AFD8C2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		D7E1E8BC207E0D7800AFD8C2 /* RickAndMortyInfoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyInfoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7E1E8C0207E0D7800AFD8C2 /* RickAndMortyInfoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyInfoUITests.swift; sourceTree = "<group>"; };
 		D7E1E8C2207E0D7800AFD8C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7E1E8D2207E182D00AFD8C2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				D7E1E8CE207E0E7F00AFD8C2 /* View controller */,
+				D7E1E8D1207E181A00AFD8C2 /* Utility */,
 				D7E1E8CF207E0E8900AFD8C2 /* Resources */,
 			);
 			path = RickAndMortyInfo;
@@ -144,6 +147,14 @@
 				D7E1E8A9207E0D7700AFD8C2 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		D7E1E8D1207E181A00AFD8C2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D7E1E8D2207E182D00AFD8C2 /* Constants.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7E1E8A1207E0D7200AFD8C2 /* AppDelegate.swift in Sources */,
+				D7E1E8D3207E182D00AFD8C2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
