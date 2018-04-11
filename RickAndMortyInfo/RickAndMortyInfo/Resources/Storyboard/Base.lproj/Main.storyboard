@@ -30,7 +30,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="characterCell" id="YJB-d6-wCo">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="characterCell" id="YJB-d6-wCo" customClass="CharacterCollectionViewCell" customModule="RickAndMortyInfo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="149" height="241"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -127,14 +127,27 @@
                                             <constraint firstItem="qgs-9z-NxD" firstAttribute="leading" secondItem="YJB-d6-wCo" secondAttribute="leadingMargin" id="xUA-1Y-k3s"/>
                                         </constraints>
                                         <size key="customSize" width="149" height="241"/>
+                                        <connections>
+                                            <outlet property="characterAvatarImageView" destination="h9W-wl-okV" id="HDu-Wu-H8w"/>
+                                            <outlet property="genderLabel" destination="DQt-C3-OKu" id="W1x-H5-3WD"/>
+                                            <outlet property="nameLabel" destination="QBI-p7-iVS" id="xtd-M6-bdw"/>
+                                            <outlet property="speciesLabel" destination="WRp-65-I6s" id="Pjp-cX-39l"/>
+                                            <outlet property="statusLabel" destination="LTd-Ty-fyL" id="Ypz-tD-OgF"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="opd-jb-l7p">
+                                <rect key="frame" x="142" y="266" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="opd-jb-l7p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FcR-CR-NIR"/>
                             <constraint firstItem="woR-am-cVP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PuX-CL-PDv"/>
                             <constraint firstItem="woR-am-cVP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QE2-55-2ab"/>
+                            <constraint firstItem="opd-jb-l7p" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Y0T-By-JH2"/>
                             <constraint firstItem="woR-am-cVP" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mFn-Xw-57c"/>
                             <constraint firstItem="woR-am-cVP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pJx-os-pzM"/>
                         </constraints>
@@ -144,6 +157,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="6Hv-pP-Bdx"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="opd-jb-l7p" id="K80-2U-Oym"/>
                         <outlet property="charactersCollectionView" destination="woR-am-cVP" id="fyh-lq-h7d"/>
                         <segue destination="Kn1-xz-oBP" kind="show" identifier="showCharacterDetail" id="hCo-k7-T8z"/>
                     </connections>
