@@ -1,0 +1,28 @@
+project 'RickAndMortyInfo.xcodeproj'
+
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.3'
+
+target 'RickAndMortyInfo' do
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+
+    # Pods for RickAndMortyInfo
+    pod 'IQKeyboardManagerSwift'
+    pod 'SwiftDate'
+    pod 'SwiftyJSON'
+    pod 'Kingfisher', '~> 4.0'
+    pod 'Alamofire'
+    pod 'CodableAlamofire'
+    
+    target 'RickAndMortyInfoTests' do
+    inherit! :search_paths
+    # Pods for testing
+    end
+
+    target 'RickAndMortyInfoUITests' do
+    inherit! :search_paths
+    # Pods for testing
+    end
+
+end
